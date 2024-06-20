@@ -1,11 +1,12 @@
 import React from "react";
-import { Button } from "./components/shadcn-ui/Button";
-import NavBar from "./components/NavBar";
+// import NavBar from "./components/NavBar";
+import SignUp from "./pages/Signup";
 
 const App = () => {
   return (
     <>
-      <NavBar />
+      <SignUp/>
+      {/* <NavBar /> */}
     </>
   );
 };
