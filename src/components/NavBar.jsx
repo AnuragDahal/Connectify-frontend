@@ -1,6 +1,5 @@
-import { LogIn } from "lucide-react";
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
@@ -39,20 +38,20 @@ const NavBar = () => {
           <nav className="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
             <ul className="flex justify-center align-middle gap-4 mr-20 ">
               <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-                Home
+                <Link to="/home">Home</Link>
               </li>
               <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-                About
+                <Link to="/about">About</Link>
               </li>
               <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-                Notifications
+                <Link to="/notifications">Notifications</Link>
               </li>
               <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
                 <button className="rounded-sm text-white bg-blue-600">
-                  Login
+                  <Link to="/login">Login/</Link>
                 </button>
                 <button className="rounded-sm text-white bg-green-500">
-                  SignUp
+                  <Link to="/signup">SignUp</Link>
                 </button>
               </li>
             </ul>
