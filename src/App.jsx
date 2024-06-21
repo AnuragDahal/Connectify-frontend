@@ -1,11 +1,11 @@
 import React from "react";
 // import NavBar from "./components/NavBar";
-import SignUp from "./pages/Signup";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
     <>
-      <SignUp/>
+      <Login />
       {/* <NavBar /> */}
     </>
   );

@@ -1,7 +1,7 @@
-const SignUp = () => {
+const Login = () => {
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="h-screen w-full flex flex-row-reverse justify-end items-center gap-24">
+      <div className="flex flex-col items-center justify-center h-screen w-[700px]">
         <header className="flex-col justify-start">
           <h1 className="text-blue-500 font-extrabold text-6xl">CONNECTIFY</h1>
           <span className="text-xl flex justify-center font-serif font-medium">
@@ -27,7 +27,7 @@ const SignUp = () => {
                 className="px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
-            <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400">
+            <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
               Login
             </button>
 
@@ -94,21 +94,27 @@ const SignUp = () => {
                   </g>{" "}
                 </g>{" "}
               </svg>
-              <span className="mb-2 text-black-600">Continue with Google</span>
+              <span className="mb-2 font-semibold text-center">Continue with Google</span>
             </button>
             <span className="flex justify-center font-medium font-serif">
               Or
             </span>
             <hr />
             <div className="flex justify-center">
-              <button className="block w-60 px-4 py-2 text-white bg-green-500 rounded-md hover:bg-blue-400">
+              <button className="block w-60 px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-400">
                 SignUp
               </button>
             </div>
           </form>
         </div>
       </div>
+      <div className="b- h-[900px] w-[800px] p-10 ">
+        <img
+          className="aspect-square mix-blend-color-dodge"
+          src="https://res.cloudinary.com/dhg031daj/image/upload/4707071"
+        />
+      </div>
     </div>
   );
 };
-export default SignUp;
+export default Login;
