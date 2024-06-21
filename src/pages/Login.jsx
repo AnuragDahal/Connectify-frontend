@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="h-screen w-full flex flex-row-reverse justify-end items-center gap-24">
@@ -8,7 +9,7 @@ const Login = () => {
             Welcome to Connectify
           </span>
         </header>
-        <div className="w-full max-w-md p-4 m-4 bg-white rounded-lg shadow-md">
+        <div className="w-full max-w-md p-4 m-4 rounded-lg shadow-md">
           <h1 className="text-3xl font-semibold text-center">Login</h1>
           <form className="mt-4">
             <div className="flex flex-col mb-4">
@@ -94,23 +95,25 @@ const Login = () => {
                   </g>{" "}
                 </g>{" "}
               </svg>
-              <span className="mb-2 font-semibold text-center">Continue with Google</span>
+              <span className="mb-2 font-semibold text-center">
+                Continue with Google
+              </span>
             </button>
             <span className="flex justify-center font-medium font-serif">
-              Or
+              OR
             </span>
-            <hr />
-            <div className="flex justify-center">
-              <button className="block w-60 px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-400">
+            <hr className="mb-2" />
+            <Link to="/signup" className="flex justify-center">
+              <button className="flex justify-center font-semibold w-60 px-4 py-2 text-white bg-green-400 rounded-md hover:bg-green-500">
                 SignUp
               </button>
-            </div>
+            </Link>
           </form>
         </div>
       </div>
       <div className="b- h-[900px] w-[800px] p-10 ">
         <img
-          className="aspect-square mix-blend-color-dodge"
+          className="aspect-square mix-blend"
           src="https://res.cloudinary.com/dhg031daj/image/upload/4707071"
         />
       </div>
