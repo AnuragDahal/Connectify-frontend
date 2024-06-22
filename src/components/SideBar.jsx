@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "./Accordion";
 
-const Home = () => {
+const SideBar = () => {
   return (
     <>
       <div className="my-14 h-screen w-52 bg-indigo-400">
@@ -49,4 +49,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default SideBar;
