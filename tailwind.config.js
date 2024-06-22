@@ -19,8 +19,8 @@ module.exports = {
     extend: {
       keyframes: {
         scaleUp: {
-          '0%': { transform: 'scale(1)' },
-          '100%': { transform: 'scale(1.05)' }, // Example scale factor
+          '0%': { transform: 'scale(0.5)' },
+          '100%': { transform: 'scale(1)' }, // Example scale factor
         },
         "accordion-down": {
           from: { height: "0" },

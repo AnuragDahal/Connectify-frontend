@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
-    <div className="animate-scaleUp flex flex-row-reverse justify-end items-center gap-24">
-      <div className="flex flex-col items-center justify-center w-[700px]">
-        <header className="flex-col justify-start">
-          <h1 className="text-blue-500 font-extrabold text-6xl">CONNECTIFY</h1>
-          <span className="text-xl flex justify-center font-serif font-medium">
+    <div className="animate-scaleUp flex flex-col md:flex-row-reverse md:justify-end items-center md:gap-24 gap-6 px-4 md:px-0">
+      <div className="flex flex-col items-center justify-center md:w-[700px] w-full">
+        <header className="flex-col justify-start mb-4 md:mb-8">
+          <h1 className="text-blue-500 font-extrabold text-4xl md:text-6xl">
+            CONNECTIFY
+          </h1>
+          <span className="text-lg md:text-xl flex justify-center font-serif font-medium">
             Welcome to Connectify
           </span>
         </header>
-        <div className="w-full max-w-md p-4 m-4 rounded-lg shadow-md">
-          <h1 className="text-3xl font-semibold text-center">Login</h1>
+        <div className="w-full max-w-md p-4 m-4 rounded-lg shadow-md bg-white">
+          <h1 className="text-2xl md:text-3xl font-semibold text-center">
+            Login
+          </h1>
           <form className="mt-4">
             <div className="flex flex-col mb-4">
               <label className="mb-2 font-semibold text-gray-600">Email</label>
@@ -28,15 +33,16 @@ const Login = () => {
                 className="px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
-            <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
-              Login
-            </button>
-
+            <Link to="/">
+              <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
+                Login
+              </button>
+            </Link>
             <button className="flex justify-center w-full mt-3 bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               <svg
-                class="h-6 w-6 mr-2"
+                className="h-6 w-6 mr-2"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
                 width="800px"
                 height="800px"
                 viewBox="-0.5 0 48 48"
@@ -48,9 +54,9 @@ const Login = () => {
                 <g
                   id="Icons"
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
                   {" "}
                   <g
@@ -99,7 +105,7 @@ const Login = () => {
                 Continue with Google
               </span>
             </button>
-            <span className="flex justify-center font-medium font-serif">
+            <span className="flex justify-center font-medium font-serif mt-2">
               OR
             </span>
             <hr className="mb-2" />
@@ -111,13 +117,14 @@ const Login = () => {
           </form>
         </div>
       </div>
-      <div className="h-[900px] w-[800px] p-10 ">
+      <div className="h-64 md:h-[900px] w-full md:w-[800px] p-4 md:p-10">
         <img
-          className="aspect-square mix-blend"
+          className="w-full h-full object-cover"
           src="https://res.cloudinary.com/dhg031daj/image/upload/4707071"
         />
       </div>
     </div>
   );
 };
+
 export default Login;
