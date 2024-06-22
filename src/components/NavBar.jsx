@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
+import { Avatar, AvatarFallback, AvatarImage } from "./Avatar";
 const NavBar = () => {
   const [atTop, setAtTop] = useState(true);
   const location = useLocation();
@@ -48,15 +48,22 @@ const NavBar = () => {
             </div>
           </nav>
           <nav className="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
-            <ul className="flex justify-center items-center gap-20 mr-20 ">
-              <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-                <button className="rounded-sm text-white">
-                  <Link to="/login">Login/</Link>
-                </button>
-                <button className="rounded-sm text-white">
-                  <Link to="/signup">SignUp</Link>
-                </button>
-              </li>
+            <ul className="flex gap-3">
+              <button className="rounded-sm  hover:text-blue-400  text-white">
+                <Link to="/login">Login</Link>
+              </button>
+              <button className="rounded-sm hover:text-blue-400  text-white">
+                <Link to="/signup">SignUp</Link>
+              </button>
+              <button className="ml-10">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </button>
             </ul>
           </nav>
         </div>
