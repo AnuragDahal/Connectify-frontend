@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 const Login = () => {
   return (
-    <div className="h-screen w-full flex flex-row-reverse justify-end items-center gap-24">
-      <div className="flex flex-col items-center justify-center h-screen w-[700px]">
+    <div className="animate-scaleUp flex flex-row-reverse justify-end items-center gap-24">
+      <div className="flex flex-col items-center justify-center w-[700px]">
         <header className="flex-col justify-start">
           <h1 className="text-blue-500 font-extrabold text-6xl">CONNECTIFY</h1>
           <span className="text-xl flex justify-center font-serif font-medium">
@@ -111,7 +111,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-      <div className="b- h-[900px] w-[800px] p-10 ">
+      <div className="h-[900px] w-[800px] p-10 ">
         <img
           className="aspect-square mix-blend"
           src="https://res.cloudinary.com/dhg031daj/image/upload/4707071"

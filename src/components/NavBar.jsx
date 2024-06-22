@@ -38,7 +38,7 @@ const NavBar = () => {
           <nav className="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
             <ul className="flex justify-center align-middle gap-4 mr-20 ">
               <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
                 <Link to="/about">About</Link>

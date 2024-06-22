@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-
+const handleSignUp = (e) => {
+  "Handle the SignUp logic here";
+};
 const SignUp = () => {
   return (
     <>
-      <section className="mt-10">
-        <div className="container h-full gap-30 px-6 py-24">
-          <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+      <section className="mt-28 animate-scaleUp">
+        <div className="container g-30 fit px-6">
+          <div className="g-6 flex items-center justify-center lg:justify-center">
             {/* <!-- Left column container with background--> */}
             <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
               <img
@@ -15,98 +17,135 @@ const SignUp = () => {
               />
             </div>
             {/* <!-- Right column container with form --> */}
-            <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
+            <div className="flex flex-col items-center justify-center w-[700px]">
               <header className="flex-col justify-start">
-                <h1 className="text-blue-500 flex justify-center font-extrabold text-6xl">
+                <h1 className="text-blue-500 font-extrabold text-6xl">
                   CONNECTIFY
                 </h1>
-                <span className="text-xl mb-10 flex justify-center font-serif font-medium">
+                <span className="text-xl flex justify-center font-serif font-medium">
                   Welcome to Connectify
                 </span>
               </header>
-              <form className="flex flex-col ">
-                <label>Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your Name"
-                  size="lg"
-                  className="mb-6 font-sans font-light"
-                ></input>
-                <label>Email address</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  size="lg"
-                  className="mb-6"
-                ></input>
-                <label>Password</label>
-                <input
-                  type="password"
-                  placeholder="Enter your password"
-                  className="mb-6 bg-zinc-300"
-                  size="lg"
-                ></input>
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+              <div className="w-full max-w-md p-4 m-4 rounded-lg shadow-md">
+                <h1 className="text-3xl font-semibold text-center">SignUp</h1>
+                <form className="mt-4">
+                  <div className="flex flex-col mb-4">
+                    <label className="mb-2 font-semibold text-gray-600">
+                      Name
+                    </label>
                     <input
-                      className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                      type="checkbox"
-                      value=""
-                      id="exampleCheck3"
-                      defaultChecked
+                      type="text"
+                      className="px-3 py-2 border border-gray-300 rounded-md"
                     />
                   </div>
-
-                  {/* <!-- Forgot password link --> */}
-                </div>
-                {/* <!-- Submit button --> */}
-                <div className="w-full">
-                  <button
-                    type="button"
-                    className="inline-block w-full rounded bg-primary px-7 pb-2.5 bg-blue-400 hover:bg-blue-500 pt-3 text-sm font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  >
-                    Sign up
+                  <div className="flex flex-col mb-4">
+                    <label className="mb-2 font-semibold text-gray-600">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="px-3 py-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
+                  <div className="flex flex-col mb-4">
+                    <label className="mb-2 font-semibold text-gray-600">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="px-3 py-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
+                  <div className="flex flex-col mb-4">
+                    <label className="mb-2 font-semibold text-gray-600">
+                      Confirm Password
+                    </label>
+                    <input
+                      type="password"
+                      className="px-3 py-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
+                  <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
+                    SignUp
                   </button>
-                </div>
-                <div className="w-full">
-                  <span className="font-lighter text-black my-3 flex justify-center">
-                    Already Have An Account?
-                  </span>
-                  <Link to="/login">
-                    <button
-                      type="button"
-                      className="inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 bg-green-400 hover:bg-green-500 text-sm font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  <button className="flex justify-center w-full mt-3 bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <svg
+                      class="h-6 w-6 mr-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="800px"
+                      height="800px"
+                      viewBox="-0.5 0 48 48"
+                      version="1.1"
                     >
+                      {" "}
+                      <title>Google-color</title>{" "}
+                      <desc>Created with Sketch.</desc> <defs> </defs>{" "}
+                      <g
+                        id="Icons"
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                      >
+                        {" "}
+                        <g
+                          id="Color-"
+                          transform="translate(-401.000000, -860.000000)"
+                        >
+                          {" "}
+                          <g
+                            id="Google"
+                            transform="translate(401.000000, 860.000000)"
+                          >
+                            {" "}
+                            <path
+                              d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24"
+                              id="Fill-1"
+                              fill="#FBBC05"
+                            >
+                              {" "}
+                            </path>{" "}
+                            <path
+                              d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333"
+                              id="Fill-2"
+                              fill="#EB4335"
+                            >
+                              {" "}
+                            </path>{" "}
+                            <path
+                              d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667"
+                              id="Fill-3"
+                              fill="#34A853"
+                            >
+                              {" "}
+                            </path>{" "}
+                            <path
+                              d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24"
+                              id="Fill-4"
+                              fill="#4285F4"
+                            >
+                              {" "}
+                            </path>{" "}
+                          </g>{" "}
+                        </g>{" "}
+                      </g>{" "}
+                    </svg>
+                    <span className="mb-2 font-semibold text-center">
+                      Continue with Google
+                    </span>
+                  </button>
+                  <span className="flex justify-center font-medium font-serif">
+                    OR
+                  </span>
+                  <hr className="mb-2" />
+                  <Link to="/login" className="flex justify-center">
+                    <button className="flex justify-center font-semibold w-60 px-4 py-2 text-white bg-green-400 rounded-md hover:bg-green-500">
                       Login
                     </button>
                   </Link>
-                </div>
-                {/* <!-- Divider --> */}
-                <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                  <p className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">
-                    OR
-                  </p>
-                </div>
-                {/* <!-- Social login buttons --> */}
-                <div className="w-full">
-                  <a
-                    className="mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                    style={{ backgroundColor: "#3b5998" }}
-                    href="#!"
-                    role="button"
-                  >
-                    {/* <!-- Facebook --> */}
-                    <svg
-                      className="mr-2 h-3.5 w-3.5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                    </svg>
-                    Continue with Facebook
-                  </a>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
