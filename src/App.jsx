@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import SideBar from "./components/SideBar";
 import About from "./pages/About";
+import CreatePost from "./pages/CreatePost";
 
 const PATH_NOT_TO_RENDER_NAVBAR_AND_SIDEBAR = ["/login", "/signup"];
 
@@ -16,16 +17,15 @@ const App = () => {
       {PATH_NOT_TO_RENDER_NAVBAR_AND_SIDEBAR.includes(
         location.pathname
       ) ? null : (
-        <div className="flex flex-row">  
+        <div className="flex flex-row">
           <NavBar />
-          <SideBar /> 
-          <Home/>
+          <SideBar />
+          <Home />
         </div>
       )}
       <Routes>
-        <Route path="/" />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/notifications" element={<Notifications />} />  */}
+        <Route path="/create" element={<CreatePost />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
