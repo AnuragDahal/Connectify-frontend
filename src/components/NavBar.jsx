@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "./Avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
 const NavBar = () => {
   const [atTop, setAtTop] = useState(true);
   const location = useLocation();

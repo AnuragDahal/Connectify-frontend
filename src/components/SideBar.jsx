@@ -6,16 +6,16 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./Accordion";
+} from "./ui/Accordion";
 
 const SideBar = () => {
   return (
     <>
-      <div className="my-14 h-screen w-52 bg-indigo-400">
-        <ul className="flex flex-col gap-6 text-white font-sans font-10 font-semibold fixed px-5">
+      <div className="h-screen w-fit px-4 py-4 pt-2 bg-indigo-400">
+        <ul className="flex flex-col gap-6 text-white font-sans font-10 font-semibold px-5 pt-14 ">
           <li className="hover:cursor-pointer text-lg font-medium font-serif">
-            <Link className="flex mt-10 align-baseline gap-1" to="/">
-              <AiFillHome className="hover:cursor-pointer" />
+            <Link to="/" className="flex mt-10 align-baseline gap-1">
+              <AiFillHome className="hover:cursor-pointer mt-1" />
               Home
             </Link>
           </li>
