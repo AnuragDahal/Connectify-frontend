@@ -10,12 +10,12 @@ import {
   CardTitle,
 } from "../components/ui/PostCard";
 
-const CreatePost = () => {
+const CreatePost = ({ name }) => {
   return (
     <div className="flex justify-center items-center w-fit p-10">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Create project</CardTitle>
+          <CardTitle>Create project by {name}</CardTitle>
           <CardDescription>
             Deploy your new project in one-click.
           </CardDescription>
