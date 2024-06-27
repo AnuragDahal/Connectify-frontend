@@ -1,6 +1,28 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const validate = async () => {
+    const fd = new FormData();
+    fd.append("username", email);
+    fd.append("password", password);
+
+    fetch("https://connectify-backend-rkjt.onrender.com/api/v1/login", {
+      method: "POST",
+      body: fd,
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/");
+        }
+        throw new Error(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="animate-scaleUp flex flex-col md:flex-row-reverse md:justify-end items-center md:gap-24 gap-6 px-4 md:px-0">
       <div className="flex flex-col items-center justify-center md:w-[700px] w-full">
@@ -16,10 +38,18 @@ const Login = () => {
           <h1 className="text-2xl md:text-3xl font-semibold text-center">
             Login
           </h1>
-          <form className="mt-4">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              validate();
+            }}
+            className="mt-4"
+          >
             <div className="flex flex-col mb-4">
               <label className="mb-2 font-semibold text-gray-600">Email</label>
               <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 className="px-3 py-2 border border-gray-300 rounded-md"
               />
@@ -29,15 +59,17 @@ const Login = () => {
                 Password
               </label>
               <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 className="px-3 py-2 border border-gray-300 rounded-md"
               />
             </div>
-            <Link to="/">
-              <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
-                Login
-              </button>
-            </Link>
+
+            <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
+              Login
+            </button>
+
             <button className="flex justify-center w-full mt-3 bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               <svg
                 className="h-6 w-6 mr-2"

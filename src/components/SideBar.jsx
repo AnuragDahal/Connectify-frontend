@@ -1,5 +1,6 @@
 import { AiFillHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { FaPeopleGroup } from "react-icons/fa6";
 import { IoNotifications, IoSettingsSharp } from "react-icons/io5";
 import {
   Accordion,
@@ -20,7 +21,10 @@ const SideBar = () => {
             </Link>
           </li>
           <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-            <Link to="/about">About</Link>
+            <Link to="/about" className="flex flex-row gap-1">
+              <FaPeopleGroup className="hover:cursor-pointer mt-1" />
+              About
+            </Link>
           </li>
           <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
             <Link to="/notifications" className="flex flex-row gap-1">
