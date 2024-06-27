@@ -1,7 +1,7 @@
 const Post = ({ fullName, description, imageLink }) => {
   return (
     <>
-      <div className="flex bg-white max-h-svh shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl ">
+      <div className="flex bg-white max-h-svh shadow-lg rounded-lg mx-4 md:mx-auto max-w-md md:max-w-2xl ">
         <div className="flex items-start h-auto px-4 py-6">
           <img
             className="w-12 h-12 rounded-full object-cover mr-4 shadow"

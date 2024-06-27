@@ -11,7 +11,7 @@ import {
 const SideBar = () => {
   return (
     <>
-      <div className="h-screen w-fit px-4 py-4 pt-2 bg-indigo-400">
+      <div className="h-screen w-fit px-4 py-4 pt-2 bg-indigo-400 fixed">
         <ul className="flex flex-col gap-6 text-white font-sans font-10 font-semibold px-5 pt-14 ">
           <li className="hover:cursor-pointer text-lg font-medium font-serif">
             <Link to="/" className="flex mt-10 align-baseline gap-1">
@@ -23,11 +23,8 @@ const SideBar = () => {
             <Link to="/about">About</Link>
           </li>
           <li className="hover:cursor-pointer hover:underline text-lg font-medium font-serif">
-            <Link
-              to="/notifications"
-              className="flex flex-wrap items-center justify-center gap-2 "
-            >
-              <IoNotifications className="hover:cursor-pointer" />
+            <Link to="/notifications" className="flex flex-row gap-1">
+              <IoNotifications className="hover:cursor-pointer mt-1" />
               Notifications
             </Link>
           </li>
