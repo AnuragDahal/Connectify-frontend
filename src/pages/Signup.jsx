@@ -34,7 +34,10 @@ const SignUp = () => {
       alert("Password didn't match");
     }
   };
-  // const handleGoogleSignIn = () => {};
+  const handleGoogleSignIn = () => {
+    window.location.href =
+      "https://connectify-backend-rkjt.onrender.com/api/v1/google/login";
+  };
   return (
     <>
       <section className="mt-28 animate-scaleUp">
@@ -119,6 +122,7 @@ const SignUp = () => {
                   </button>
                   <button
                     type="button"
+                    onClick={handleGoogleSignIn}
                     className="flex justify-center w-full mt-3 bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                   >
                     <svg
