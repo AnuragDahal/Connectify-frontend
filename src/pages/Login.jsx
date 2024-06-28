@@ -5,7 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = useState("An error occurred");
+  // const [errorMessage, setErrorMessage] = useState("An error occurred");
   const validate = async () => {
     const fd = new FormData();
     fd.append("username", email);
@@ -16,22 +16,17 @@ const Login = () => {
       body: fd,
     })
       .then(async (res) => {
-        if (res.status === 200) {
+        if (res.status >= 200 && res.status <= 300) {
           navigate("/");
         } else {
           const errorData = await res.json();
-          await setErrorMessage(errorData.detail);
-          return errorData.detail;
+          alert(errorData.detail);
         }
-      })
-      .then(async (res) => {
-        alert(res);
       })
       .catch((err) => {
         alert(err);
       });
   };
-
   return (
     <div className="animate-scaleUp flex flex-col md:flex-row-reverse md:justify-end items-center md:gap-24 gap-6 px-4 md:px-0">
       <div className="flex flex-col items-center justify-center md:w-[700px] w-full">

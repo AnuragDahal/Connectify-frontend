@@ -7,9 +7,9 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
   const formData = new FormData();
-  formData.append(name);
-  formData.append(email);
-  formData.append(password);
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("password", password);
   const handleUserSignUp = async () => {
     // check the password and confirm password
     if (confirmPassword == password) {
@@ -17,19 +17,24 @@ const SignUp = () => {
         method: "POST",
         body: formData,
       })
-        .then((res) => {
-          if (res.status == 200) {
+        .then(async (res) => {
+          if (res.status == 201) {
             setEmail("");
             setName("");
             setConfirmPassword("");
             setPassword("");
             navigate("/login");
+          } else {
+            const errorData = await res.json();
+            alert(errorData.detail);
           }
         })
         .catch((err) => alert(err));
+    } else {
+      alert("Password didn't match");
     }
   };
-  const handleGoogleSignIn = () => {};
+  // const handleGoogleSignIn = () => {};
   return (
     <>
       <section className="mt-28 animate-scaleUp">
@@ -106,14 +111,20 @@ const SignUp = () => {
                       className="px-3 py-2 border border-gray-300 rounded-md"
                     />
                   </div>
-                  <button className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center">
+                  <button
+                    type="submit"
+                    className="block w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-400 font-semibold text-center"
+                  >
                     SignUp
                   </button>
-                  <button className="flex justify-center w-full mt-3 bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                  <button
+                    type="button"
+                    className="flex justify-center w-full mt-3 bg-white dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                  >
                     <svg
-                      class="h-6 w-6 mr-2"
+                      className="h-6 w-6 mr-2"
                       xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
                       width="800px"
                       height="800px"
                       viewBox="-0.5 0 48 48"
@@ -125,9 +136,9 @@ const SignUp = () => {
                       <g
                         id="Icons"
                         stroke="none"
-                        stroke-width="1"
+                        strokeWidth="1"
                         fill="none"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                       >
                         {" "}
                         <g
