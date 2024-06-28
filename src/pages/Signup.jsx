@@ -1,8 +1,35 @@
-import { Link } from "react-router-dom";
-const handleSignUp = (e) => {
-  "Handle the SignUp logic here";
-};
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+  const formData = new FormData();
+  formData.append(name);
+  formData.append(email);
+  formData.append(password);
+  const handleUserSignUp = async () => {
+    // check the password and confirm password
+    if (confirmPassword == password) {
+      fetch("https://connectify-backend-rkjt.onrender.com/api/v1/signup", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => {
+          if (res.status == 200) {
+            setEmail("");
+            setName("");
+            setConfirmPassword("");
+            setPassword("");
+            navigate("/login");
+          }
+        })
+        .catch((err) => alert(err));
+    }
+  };
+  const handleGoogleSignIn = () => {};
   return (
     <>
       <section className="mt-28 animate-scaleUp">
@@ -28,12 +55,20 @@ const SignUp = () => {
               </header>
               <div className="w-full max-w-md p-4 m-4 rounded-lg shadow-md">
                 <h1 className="text-3xl font-semibold text-center">SignUp</h1>
-                <form className="mt-4">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleUserSignUp();
+                  }}
+                  className="mt-4"
+                >
                   <div className="flex flex-col mb-4">
                     <label className="mb-2 font-semibold text-gray-600">
                       Name
                     </label>
                     <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       type="text"
                       className="px-3 py-2 border border-gray-300 rounded-md"
                     />
@@ -43,6 +78,8 @@ const SignUp = () => {
                       Email
                     </label>
                     <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       className="px-3 py-2 border border-gray-300 rounded-md"
                     />
@@ -52,6 +89,8 @@ const SignUp = () => {
                       Password
                     </label>
                     <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       className="px-3 py-2 border border-gray-300 rounded-md"
                     />
@@ -61,6 +100,8 @@ const SignUp = () => {
                       Confirm Password
                     </label>
                     <input
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       type="password"
                       className="px-3 py-2 border border-gray-300 rounded-md"
                     />
@@ -140,7 +181,10 @@ const SignUp = () => {
                   </span>
                   <hr className="mb-2" />
                   <Link to="/login" className="flex justify-center">
-                    <button className="flex justify-center font-semibold w-60 px-4 py-2 text-white bg-green-400 rounded-md hover:bg-green-500">
+                    <button
+                      type="btn"
+                      className="flex justify-center font-semibold w-60 px-4 py-2 text-white bg-green-400 rounded-md hover:bg-green-500"
+                    >
                       Login
                     </button>
                   </Link>

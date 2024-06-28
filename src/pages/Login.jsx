@@ -5,6 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("An error occurred");
   const validate = async () => {
     const fd = new FormData();
     fd.append("username", email);
@@ -14,13 +15,21 @@ const Login = () => {
       method: "POST",
       body: fd,
     })
-      .then((res) => {
+      .then(async (res) => {
         if (res.status === 200) {
           navigate("/");
+        } else {
+          const errorData = await res.json();
+          await setErrorMessage(errorData.detail);
+          return errorData.detail;
         }
-        throw new Error(res);
       })
-      .catch((err) => console.log(err));
+      .then(async (res) => {
+        alert(res);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   return (
