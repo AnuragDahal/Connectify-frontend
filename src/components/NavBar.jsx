@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "./ui/Command";
+
 const NavBar = () => {
   const [atTop, setAtTop] = useState(true);
   const location = useLocation();
@@ -45,6 +55,23 @@ const NavBar = () => {
                   <path d="M12.905 14.32a8 8 0 1 1 1.414-1.414l5.337 5.337a1 1 0 0 1-1.414 1.414l-5.337-5.337zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
                 </svg>
               </button>
+              {/* <Command>
+                <CommandInput placeholder="Type a command or search..." />
+                <CommandList>
+                  <CommandEmpty>No results found.</CommandEmpty>
+                  <CommandGroup heading="Suggestions">
+                    <CommandItem>Calendar</CommandItem>
+                    <CommandItem>Search Emoji</CommandItem>
+                    <CommandItem>Calculator</CommandItem>
+                  </CommandGroup>
+                  <CommandSeparator />
+                  <CommandGroup heading="Settings">
+                    <CommandItem>Profile</CommandItem>
+                    <CommandItem>Billing</CommandItem>
+                    <CommandItem>Settings</CommandItem>
+                  </CommandGroup>
+                </CommandList>
+              </Command> */}
             </div>
           </nav>
           <nav className="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
