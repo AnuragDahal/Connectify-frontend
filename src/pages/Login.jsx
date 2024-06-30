@@ -11,12 +11,14 @@ const Login = () => {
     fd.append("username", email);
     fd.append("password", password);
 
-    fetch("https://connectify-backend-rkjt.onrender.com/api/v1/login", {
+    fetch("https://connectify-lx6i.onrender.com/api/v1/login", {
       method: "POST",
+      credentials: "include",
       body: fd,
     })
       .then(async (res) => {
         if (res.status >= 200 && res.status <= 300) {
+          console.log(res);
           navigate("/");
         } else {
           const errorData = await res.json();
@@ -162,5 +164,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

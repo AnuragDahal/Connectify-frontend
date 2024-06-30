@@ -13,7 +13,7 @@ const SignUp = () => {
   const handleUserSignUp = async () => {
     // check the password and confirm password
     if (confirmPassword == password) {
-      fetch("https://connectify-backend-rkjt.onrender.com/api/v1/signup", {
+      fetch("https://connectify-lx6i.onrender.com/api/v1/signup", {
         method: "POST",
         body: formData,
       })
@@ -35,8 +35,7 @@ const SignUp = () => {
     }
   };
   const handleGoogleSignIn = () => {
-    window.location.href =
-      "https://connectify-backend-rkjt.onrender.com/api/v1/google/login";
+    window.location.href = "https://connectify-lx6i.onrender.com/api/v1/google/login";
   };
   return (
     <>
