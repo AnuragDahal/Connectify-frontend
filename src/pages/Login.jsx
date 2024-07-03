@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import Cookies from "js-cookie"; // Import js-cookie
 
 const Login = () => {
+  console.log("Login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { updateToken } = useAuth();
   const navigate = useNavigate();
 
   const validate = async () => {
@@ -13,27 +13,19 @@ const Login = () => {
     fd.append("username", email);
     fd.append("password", password);
 
-    // https://connectify-lx6i.onrender.com/api/v1/login
-
     fetch("http://127.0.0.1:8000/api/v1/login", {
       method: "POST",
       credentials: "include",
       body: fd,
-    })
-      .then(async (res) => {
-        if (res.status >= 200 && res.status <= 300) {
-          const data = await res.json();
-          updateToken(data.access_token);
+    }).then(
+      async (res) =>
+        await res.json().then((res) => {
+          Cookies.set("token", res.access_token, { expires: 7 });
           navigate("/");
-        } else {
-          const errorData = await res.json();
-          alert(errorData.detail);
-        }
-      })
-      .catch((err) => {
-        alert(err);
-      });
+        })
+    );
   };
+
   return (
     <div className="animate-scaleUp flex flex-col md:flex-row-reverse md:justify-end items-center md:gap-24 gap-6 px-4 md:px-0">
       <div className="flex flex-col items-center justify-center md:w-[700px] w-full">
@@ -169,4 +161,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;

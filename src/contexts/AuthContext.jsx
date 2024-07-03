@@ -1,18 +1,12 @@
 import React, { createContext, useContext, useState } from "react";
-
+import Cookies from "js-cookie"; // Import js-cookie
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(null);
-
-  const updateToken = (newToken) => {
-    setToken(newToken);
-  };
-
+  // Initialize token state from cookies
+  const [token, setToken] = useState(() => Cookies.get("token"));
   return (
-    <AuthContext.Provider value={{ token, updateToken }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ token }}>{children}</AuthContext.Provider>
   );
 };
 
