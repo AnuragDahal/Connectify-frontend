@@ -1,4 +1,4 @@
-const Post = ({ fullName, description, imageLink }) => {
+const Post = ({ title, content, posted_by, images }) => {
   return (
     <>
       <div className="flex bg-white max-h-svh shadow-lg rounded-lg mx-4 md:mx-auto max-w-md md:max-w-2xl ">
@@ -11,14 +11,15 @@ const Post = ({ fullName, description, imageLink }) => {
           <div className="">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-gray-900 -mt-1">
-                {fullName}{" "}
+                {posted_by}{" "}
               </h2>
             </div>
-            <p className="mt-6 text-gray-700 text-sm">{description}</p>
+            <p className="mt-6 text-gray-700 text-lg font-semibold">{title}</p>
+            <p className="mt-6 text-gray-700 text-sm">{content}</p>
             <div className="w-full px-4 h-[300px] mr-5 pb-3">
               <img
                 className="object-contain aspect-square h-[300px] w-full "
-                src={imageLink}
+                src={images[0]}
               />
             </div>
             <div className="mt-4 flex items-center">

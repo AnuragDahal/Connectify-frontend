@@ -19,14 +19,12 @@ const Dashboard = () => {
         // Ensure fetchedData is an array before setting it
         if (Array.isArray(fetchedData)) {
           data.push(setData(fetchedData));
-          console.log(token);
-          console.log(data);
         } else {
           console.error("Fetched data is not an array:", fetchedData);
         }
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, [token]); // Dependency array to avoid fetching on every render
+  }, []); // Dependency array to avoid fetching on every render
 
   return (
     <>
