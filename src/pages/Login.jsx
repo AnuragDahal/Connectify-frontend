@@ -1,24 +1,29 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { updateToken } = useAuth();
   const navigate = useNavigate();
-  // const [errorMessage, setErrorMessage] = useState("An error occurred");
+
   const validate = async () => {
     const fd = new FormData();
     fd.append("username", email);
     fd.append("password", password);
 
-    fetch("https://connectify-lx6i.onrender.com/api/v1/login", {
+    // https://connectify-lx6i.onrender.com/api/v1/login
+
+    fetch("http://127.0.0.1:8000/api/v1/login", {
       method: "POST",
       credentials: "include",
       body: fd,
     })
       .then(async (res) => {
         if (res.status >= 200 && res.status <= 300) {
-          console.log(res);
+          const data = await res.json();
+          updateToken(data.access_token);
           navigate("/");
         } else {
           const errorData = await res.json();

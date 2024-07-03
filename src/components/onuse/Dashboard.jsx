@@ -3,11 +3,8 @@ import NavBar from "../NavBar";
 import SideBar from "../SideBar";
 import Post from "../Post";
 
-// const 
 const Dashboard = () => {
-  const data = [
-
-  ]
+  const data = [];
   return (
     <>
       <NavBar />

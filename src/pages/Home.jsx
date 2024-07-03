@@ -1,8 +1,10 @@
-
+import { useAuth } from "../contexts/AuthContext";
 const Home = () => {
+  const { token } = useAuth();
   return (
     <>
-      <div className="pt-14 h-screen"></div>
+      {console.log(token ? token : "No token found")}
+      <div className="pt-14 h-screen text-3xl font-semibold"></div>
     </>
   );
 };

@@ -1,18 +1,23 @@
 import React from "react";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/onuse/Dashboard";
+import { AuthProvider } from "./contexts/AuthContext";
+import Home from "./pages/Home";
 
 const App = () => {
   // const location = useLocation();
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/about" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 };
