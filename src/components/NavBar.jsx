@@ -22,13 +22,13 @@ const NavBar = () => {
   return (
     <div className={`bg-grayDark ${!atTop ? "bg-black shadow-lg" : ""}`}>
       <div className="w-full text-gray-700 h-16 fixed top-0 animated z-40">
-        <div className="flex flex-col text-white w-full px-2 mx-auto md:items-center bg-slate-700 md:justify-around md:flex-row">
-          <div className="p-4 flexitems-center justify-center">
+        <div className="flex flex-col text-white w-full px-4 sm:px-2 mx-auto md:items-center bg-slate-700 md:justify-around md:flex-row">
+          <div className="p-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#"
               className="tracking-widest rounded-lg focus:outline-none focus:shadow-outline"
             >
-              <h1 className="font-semibold text-xl ">CONNECTIFY</h1>
+              <h1 className="font-semibold text-xl">CONNECTIFY</h1>
             </a>
             <button className="md:hidden rounded-lg focus:outline-none focus:shadow-outline">
               <span className="text-lg text-primary">
@@ -37,10 +37,10 @@ const NavBar = () => {
             </button>
           </div>
           <nav className="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
-            <div className="relative mr-3 md:mr-0">
+            <div className="relative w-full sm:w-auto">
               <input
                 type="search"
-                className="w-[500px] bg-gray-200 text-gray-700 border  border-gray-200 rounded-3xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="w-full sm:w-64 md:w-96 bg-gray-200 text-gray-700 border border-gray-200 rounded-3xl py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 placeholder="Search..."
               />
               <button
@@ -55,31 +55,14 @@ const NavBar = () => {
                   <path d="M12.905 14.32a8 8 0 1 1 1.414-1.414l5.337 5.337a1 1 0 0 1-1.414 1.414l-5.337-5.337zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
                 </svg>
               </button>
-              {/* <Command>
-                <CommandInput placeholder="Type a command or search..." />
-                <CommandList>
-                  <CommandEmpty>No results found.</CommandEmpty>
-                  <CommandGroup heading="Suggestions">
-                    <CommandItem>Calendar</CommandItem>
-                    <CommandItem>Search Emoji</CommandItem>
-                    <CommandItem>Calculator</CommandItem>
-                  </CommandGroup>
-                  <CommandSeparator />
-                  <CommandGroup heading="Settings">
-                    <CommandItem>Profile</CommandItem>
-                    <CommandItem>Billing</CommandItem>
-                    <CommandItem>Settings</CommandItem>
-                  </CommandGroup>
-                </CommandList>
-              </Command> */}
             </div>
           </nav>
           <nav className="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
             <ul className="flex gap-3">
-              <button className="rounded-sm  hover:text-blue-400  text-white">
+              <button className="rounded-sm hover:text-blue-400 text-white">
                 <Link to="/login">Login</Link>
               </button>
-              <button className="rounded-sm hover:text-blue-400  text-white">
+              <button className="rounded-sm hover:text-blue-400 text-white">
                 <Link to="/signup">SignUp</Link>
               </button>
               <button className="ml-10">

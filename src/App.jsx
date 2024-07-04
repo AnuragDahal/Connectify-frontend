@@ -4,7 +4,8 @@ import SignUp from "./pages/Signup";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/onuse/Dashboard";
 import { AuthProvider } from "./contexts/AuthContext";
-import Home from "./pages/Home";
+import About from "./pages/About";
+import CreatePost from "./pages/CreatePost";
 
 const App = () => {
   // const location = useLocation();
@@ -13,7 +14,8 @@ const App = () => {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/about" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/create" element={<CreatePost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>

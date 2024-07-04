@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "../components/ui/Button";
 import { Input } from "../components/ui/Input";
 import { Label } from "../components/ui/Label";
@@ -9,13 +10,31 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/PostCard";
+import { useAuth } from "../contexts/AuthContext";
 
-const CreatePost = ({ name }) => {
+const CreatePost = () => {
+  const { token } = useAuth();
+  const [title, setTitle] = useState("");
+  const [images, setImages] = useState([]);
+  const [content, setContent] = useState("");
+  const fd = new FormData();
+  fd.append("title", title);
+  fd.append("content", content);
+  const handlePostCreate = () => {
+    fetch("http://127.0.0.1:8000/api/v1/posts/create", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: fd,
+    });
+  };
+
   return (
-    <div className="flex justify-center items-center w-fit p-10">
+    <div className="flex justify-center items-center w-full p-10">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Create project by {name}</CardTitle>
+          <CardTitle>New Post</CardTitle>
           <CardDescription>
             Deploy your new project in one-click.
           </CardDescription>
@@ -25,17 +44,30 @@ const CreatePost = ({ name }) => {
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Title</Label>
-                <Input id="name" placeholder="Title of Post" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="framework">Framework</Label>
+                <Input
+                  id="name"
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                  placeholder="Title of Post"
+                />
+                <Label htmlFor="name">Description</Label>
+                <Input
+                  id="name"
+                  value={content}
+                  onChange={(e) => {
+                    setContent(e.target.value);
+                  }}
+                  placeholder="Content of Post"
+                />
               </div>
             </div>
           </form>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline">Cancel</Button>
-          <Button>Post</Button>
+          <Button onClick={handlePostCreate}>Post</Button>
         </CardFooter>
       </Card>
     </div>
