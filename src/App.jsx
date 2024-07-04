@@ -5,8 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/onuse/Dashboard";
 import { AuthProvider } from "./contexts/AuthContext";
 import About from "./pages/About";
-import CreatePost from "./pages/CreatePost";
 import SinglePost from "./pages/SinglePost";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   // const location = useLocation();
@@ -16,10 +16,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
-          <Route path="/create" element={<CreatePost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/posts/:id" element={<SinglePost />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>
     </>
