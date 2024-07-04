@@ -70,7 +70,7 @@ const Dashboard = () => {
         <SideBar />
 
         <div className="flex px-40 w-full flex-col items-center pt-20 gap-7 justify-center pb-4">
-          <Popover>
+          <Popover className="bg-blue-400">
             <PopoverTrigger className="bg-[#212121] text-white font-semibold p-2 rounded-md">
               Add New Post
             </PopoverTrigger>
@@ -116,7 +116,12 @@ const Dashboard = () => {
                   </form>
                 </CardContent>
                 <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
+                  <Button
+                    variant="outline"
+                    className="bg-white text-black hover:drop-shadow-md"
+                  >
+                    Cancel
+                  </Button>
                   <Button onClick={handlePostCreate}>Post</Button>
                 </CardFooter>
               </Card>
