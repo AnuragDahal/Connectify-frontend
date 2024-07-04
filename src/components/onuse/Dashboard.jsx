@@ -4,17 +4,13 @@ import SideBar from "../SideBar";
 import Post from "../Post";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Popover, PopoverTrigger, PopoverContent } from "../ui/PopOver";
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/PostCard";
-import { Label } from "../ui/Label";
-import { Input } from "../ui/Input";
-import { Button } from "../ui/Button";
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "../ui/Dialog";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -70,30 +66,34 @@ const Dashboard = () => {
         <SideBar />
 
         <div className="flex px-40 w-full flex-col items-center pt-20 gap-7 justify-center pb-4">
-          <Popover className="bg-blue-400">
-            <PopoverTrigger className="bg-[#212121] text-white font-semibold p-2 rounded-md">
+          <Dialog className="bg-black text-white">
+            <DialogTrigger className="bg-black text-white rounded-md p-2 font-sans font-semibold">
               Add New Post
-            </PopoverTrigger>
-            <PopoverContent>
-              <Card className="w-[350px] bg-[#212121] text-white z-1">
-                <CardHeader>
-                  <CardTitle>New Post</CardTitle>
-                </CardHeader>
-                <CardContent>
+            </DialogTrigger>
+            <DialogTitle></DialogTitle>
+            <DialogContent className="bg-black text-white h-auto">
+              <DialogDescription></DialogDescription>
+              <div className="w-full">
+                <div>
+                  <h1>New Post</h1>
+                </div>
+                <div className="mt-2">
                   <form>
                     <div className="grid w-full items-center gap-4">
                       <div className="flex flex-col space-y-1.5">
-                        <Label htmlFor="name">Title</Label>
-                        <Input
+                        <label htmlFor="name">Title</label>
+                        <input
                           id="name"
+                          className="text-black font-medium font-sans"
                           value={title}
                           onChange={(e) => {
                             setTitle(e.target.value);
                           }}
                           placeholder="Title of Post"
                         />
-                        <Label htmlFor="name">Description</Label>
-                        <Input
+                        <label htmlFor="name">Description</label>
+                        <input
+                          className="text-black font-light font-sans"
                           id="name"
                           value={content}
                           onChange={(e) => {
@@ -108,28 +108,36 @@ const Dashboard = () => {
                           accept="image/*"
                           multiple
                           onChange={(e) => {
+                            const files = Array.from(e.target.files);
+                            const imageUrls = files.map((file) =>
+                              URL.createObjectURL(file)
+                            );
+                            setLoadImg(imageUrls);
                             setImages([...e.target.files]);
                           }}
                         />
                       </div>
                     </div>
                   </form>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button
-                    variant="outline"
-                    className="bg-white text-black hover:drop-shadow-md"
-                  >
+                </div>
+                <div className="flex justify-between">
+                  <button className="bg-white text-black hover:drop-shadow-md mt-2 p-2 rounded-md hover:cursor-pointer">
                     Cancel
-                  </Button>
-                  <Button onClick={handlePostCreate}>Post</Button>
-                </CardFooter>
-              </Card>
-            </PopoverContent>
-          </Popover>
+                  </button>
+                  <button
+                    className="bg-white text-black hover:drop-shadow-md mt-2 p-2 rounded-md hover:cursor-pointer"
+                    onClick={handlePostCreate}
+                  >
+                    Post
+                  </button>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
           <div className="">
-            {data.map((item) => (
-              <Post {...item} />
+            {data.map((item, index) => (
+              <Post key={index} {...item} />
             ))}
           </div>
         </div>
