@@ -20,6 +20,7 @@ const CreatePost = () => {
   const fd = new FormData();
   fd.append("title", title);
   fd.append("content", content);
+  images.forEach((image, index) => fd.append('image', image));
   const handlePostCreate = () => {
     fetch("http://127.0.0.1:8000/api/v1/posts/create", {
       method: "POST",
@@ -27,7 +28,7 @@ const CreatePost = () => {
         Authorization: `Bearer ${token}`,
       },
       body: fd,
-    });
+    }).catch((err) => console.log(err));
   };
 
   return (
@@ -60,6 +61,14 @@ const CreatePost = () => {
                     setContent(e.target.value);
                   }}
                   placeholder="Content of Post"
+                />
+                <Input
+                  type="file"
+                  name="images"
+                  multiple
+                  onChange={(e) => {
+                    setImages([...e.target.files]);
+                  }}
                 />
               </div>
             </div>
