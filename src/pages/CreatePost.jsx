@@ -11,8 +11,10 @@ import {
   CardTitle,
 } from "../components/ui/PostCard";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
+  const navigate = useNavigate();
   const { token } = useAuth();
   const [title, setTitle] = useState("");
   const [images, setImages] = useState([]);
@@ -20,7 +22,7 @@ const CreatePost = () => {
   const fd = new FormData();
   fd.append("title", title);
   fd.append("content", content);
-  images.forEach((image, index) => fd.append('image', image));
+  images.forEach((image) => fd.append("image", image));
   const handlePostCreate = () => {
     fetch("http://127.0.0.1:8000/api/v1/posts/create", {
       method: "POST",
@@ -28,58 +30,66 @@ const CreatePost = () => {
         Authorization: `Bearer ${token}`,
       },
       body: fd,
-    }).catch((err) => console.log(err));
+    })
+      .then((res) => {
+        if (res.status == 201) {
+          navigate("/");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
-    <div className="flex justify-center items-center w-full p-10">
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>New Post</CardTitle>
-          <CardDescription>
-            Deploy your new project in one-click.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Title</Label>
-                <Input
-                  id="name"
-                  value={title}
-                  onChange={(e) => {
-                    setTitle(e.target.value);
-                  }}
-                  placeholder="Title of Post"
-                />
-                <Label htmlFor="name">Description</Label>
-                <Input
-                  id="name"
-                  value={content}
-                  onChange={(e) => {
-                    setContent(e.target.value);
-                  }}
-                  placeholder="Content of Post"
-                />
-                <Input
-                  type="file"
-                  name="images"
-                  multiple
-                  onChange={(e) => {
-                    setImages([...e.target.files]);
-                  }}
-                />
+    <>
+      <div className="flex justify-center items-center w-full p-10">
+        <Card className="w-[350px]">
+          <CardHeader>
+            <CardTitle>New Post</CardTitle>
+            <CardDescription>
+              Deploy your new project in one-click.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form>
+              <div className="grid w-full items-center gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">Title</Label>
+                  <Input
+                    id="name"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                    placeholder="Title of Post"
+                  />
+                  <Label htmlFor="name">Description</Label>
+                  <Input
+                    id="name"
+                    value={content}
+                    onChange={(e) => {
+                      setContent(e.target.value);
+                    }}
+                    placeholder="Content of Post"
+                  />
+                  <Input
+                    type="file"
+                    name="images"
+                    multiple
+                    onChange={(e) => {
+                      setImages([...e.target.files]);
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="outline">Cancel</Button>
-          <Button onClick={handlePostCreate}>Post</Button>
-        </CardFooter>
-      </Card>
-    </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline">Cancel</Button>
+            <Button onClick={handlePostCreate}>Post</Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </>
   );
 };
 export default CreatePost;

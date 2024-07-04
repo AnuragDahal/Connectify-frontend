@@ -1,24 +1,12 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "./ui/Command";
 
 const NavBar = () => {
   const [atTop, setAtTop] = useState(true);
-  const location = useLocation();
-
   window.onscroll = () => {
     setAtTop(window.pageYOffset > 10 ? false : true);
   };
-
   return (
     <div className={`bg-grayDark ${!atTop ? "bg-black shadow-lg" : ""}`}>
       <div className="w-full text-gray-700 h-16 fixed top-0 animated z-40">
