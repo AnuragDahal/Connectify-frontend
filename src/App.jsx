@@ -6,6 +6,7 @@ import Dashboard from "./components/onuse/Dashboard";
 import { AuthProvider } from "./contexts/AuthContext";
 import About from "./pages/About";
 import CreatePost from "./pages/CreatePost";
+import SinglePost from "./pages/SinglePost";
 
 const App = () => {
   // const location = useLocation();
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/create" element={<CreatePost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/posts/:id" element={<SinglePost />} />
         </Routes>
       </AuthProvider>
     </>

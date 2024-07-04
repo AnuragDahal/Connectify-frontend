@@ -14,6 +14,13 @@ import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
+  const getImage = () => {
+    const img = document.getElementById("imageupload");
+    img.addEventListener("click", (e) => {
+      e.preventDefault();
+      // display the image
+    });
+  };
   const navigate = useNavigate();
   const { token } = useAuth();
   const [title, setTitle] = useState("");
@@ -71,9 +78,11 @@ const CreatePost = () => {
                     }}
                     placeholder="Content of Post"
                   />
-                  <Input
+                  <input
+                    id="imageupload"
                     type="file"
                     name="images"
+                    accept="image/*"
                     multiple
                     onChange={(e) => {
                       setImages([...e.target.files]);
