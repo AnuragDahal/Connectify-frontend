@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { twMerge as cn } from "tailwind-merge";
-import { Button } from "./Button";
+import { Button } from "@/components/ui/button";
 
 const CarouselContext = React.createContext(null);
 
