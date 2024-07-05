@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./components/onuse/Dashboard";
+import Dashboard from "../@/components/onuse/Dashboard";
 import { AuthProvider } from "./contexts/AuthContext";
 import About from "./pages/About";
 import SinglePost from "./pages/SinglePost";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../../src/components/NavBar";
-import SideBar from "../../../src/components/SideBar";
-import Post from "../../../src/components/Post";
+import NavBar from "../onuse/NavBar";
+import SideBar from "../onuse/SideBar";
+import Post from "../onuse/Post";
 import { useAuth } from "../../../src/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import {
@@ -10,16 +10,16 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
-} from "../../ui/Dialog";
+} from "../ui/Dialog";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "../ui/Caraousal";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -166,11 +166,22 @@ const Dashboard = () => {
                         >
                           {image.preview && (
                             <div className="relative w-32 h-32 object-cover rounded">
-                              <img
-                                src={image.url}
-                                alt=""
-                                className="w-32 h-32 object-cover rounded"
-                              />
+                              <Carousel>
+                                <CarouselContent>
+                                  <CarouselItem>
+                                    <img
+                                      src={image.url}
+                                      alt=""
+                                      className="w-32 h-32 object-cover rounded"
+                                    />
+                                  </CarouselItem>
+                                  <CarouselItem>...</CarouselItem>
+                                  <CarouselItem>...</CarouselItem>
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                              </Carousel>
+
                               <button
                                 onClick={() => removeImage(index)}
                                 className="w-6 h-6 absolute text-center flex items-center top-0 right-0 m-2 text-white text-lg bg-red-500 hover:text-red-700 hover:bg-gray-100 rounded-full p-1"
